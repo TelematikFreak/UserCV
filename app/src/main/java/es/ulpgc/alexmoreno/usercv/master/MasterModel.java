@@ -1,7 +1,5 @@
 package es.ulpgc.alexmoreno.usercv.master;
 
-import android.util.Log;
-
 import es.ulpgc.alexmoreno.usercv.data.Curriculum;
 import es.ulpgc.alexmoreno.usercv.data.User;
 import io.realm.OrderedCollectionChangeSet;
@@ -63,7 +61,6 @@ public class MasterModel implements MasterContract.Model {
             @Override
             public void onChange(RealmResults<User> users, OrderedCollectionChangeSet changeSet) {
                 changeSet.getInsertions();
-                Log.d(TAG, "onChange: users:" + users);
                 callback.setMasterItemList(users);
             }
 

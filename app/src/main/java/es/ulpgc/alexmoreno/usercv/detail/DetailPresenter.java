@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alexmoreno.usercv.data.Curriculum;
+import es.ulpgc.alexmoreno.usercv.data.User;
+
 public class DetailPresenter implements DetailContract.Presenter {
 
     public static String TAG = DetailPresenter.class.getSimpleName();
@@ -40,13 +43,23 @@ public class DetailPresenter implements DetailContract.Presenter {
         DetailState state = router.getDataFromPreviousScreen();
         if (state != null) {
             viewModel.userSelected = state.userSelected;
-            Log.d(TAG, "fetchDetailData: state:" + state.userSelected);
         }
 
         // update the view
         if (viewModel.userSelected != null) {
-            Log.d(TAG, "fetchDetailData: viewmodel:" + viewModel.userSelected);
-            view.get().displayData(viewModel);
+            model.loadDetailData(viewModel.userSelected, new DetailContract.Model.OnDetailDataFetchedCallback() {
+                @Override
+                public void setDetailItemList(Curriculum item) {
+                    if (item != null ){
+                        viewModel.curriculumFromUser = item;
+                        view.get().displayData(viewModel);
+                    } else {
+                        view.get().showErrorGettingItem();
+                    }
+                }
+            });
+        } else {
+            view.get().showErrorGettingItem();
         }
     }
 

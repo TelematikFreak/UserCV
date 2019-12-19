@@ -2,6 +2,7 @@ package es.ulpgc.alexmoreno.usercv.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alexmoreno.usercv.data.Curriculum;
 import es.ulpgc.alexmoreno.usercv.data.User;
 
 interface DetailContract {
@@ -26,9 +27,9 @@ interface DetailContract {
 
     interface Model {
         interface OnDetailDataFetchedCallback {
-            void setDetailItemList(User item);
+            void setDetailItemList(Curriculum item);
         }
-        void loadDetailData(OnDetailDataFetchedCallback callback);
+        void loadDetailData(User item, OnDetailDataFetchedCallback callback);
     }
 
     interface Router {

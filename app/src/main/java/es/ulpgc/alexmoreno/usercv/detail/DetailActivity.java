@@ -17,6 +17,12 @@ public class DetailActivity
     private DetailContract.Presenter presenter;
 
     private TextView name;
+    private TextView surname;
+    private TextView age;
+    private TextView job;
+    private TextView idNumber;
+    private TextView cvTitle;
+    private TextView cvResume;
 
 
     @Override
@@ -25,6 +31,20 @@ public class DetailActivity
         setContentView(R.layout.activity_detail);
 
         name = findViewById(R.id.name);
+        surname = findViewById(R.id.surname);
+        age = findViewById(R.id.age);
+        job = findViewById(R.id.job);
+        idNumber = findViewById(R.id.idCard);
+        cvTitle = findViewById(R.id.cvTitle);
+        cvResume = findViewById(R.id.cvResume);
+
+
+        androidx.appcompat.app.ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setDisplayHomeAsUpEnabled(true);
+            toolbar.setDisplayShowHomeEnabled(true);
+        }
+
 
         // do the setup
         DetailScreen.configure(this);
@@ -45,11 +65,17 @@ public class DetailActivity
 
     @Override
     public void displayData(DetailViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
-
         // deal with the data
         if (viewModel.userSelected != null) {
             name.setText(viewModel.userSelected.getName());
+            surname.setText(viewModel.userSelected.getSurname());
+            int ageFromViewModel = viewModel.userSelected.getAge();
+            String ageString = Integer.toString(ageFromViewModel);
+            age.setText(ageString);
+            job.setText(viewModel.userSelected.getJob());
+            idNumber.setText(viewModel.userSelected.getIdNumber());
+            cvTitle.setText(viewModel.curriculumFromUser.getTitle());
+            cvResume.setText(viewModel.curriculumFromUser.getCvDescription());
         }
     }
 
@@ -70,5 +96,11 @@ public class DetailActivity
 
         AlertDialog alertDialog = alertBuilder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
