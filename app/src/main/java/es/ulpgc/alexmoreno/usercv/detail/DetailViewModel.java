@@ -1,6 +1,8 @@
 package es.ulpgc.alexmoreno.usercv.detail;
 
-public class DetailViewModel {
+import es.ulpgc.alexmoreno.usercv.data.User;
 
-    public String data;
+public class DetailViewModel {
+    public User userSelected;
+
 }

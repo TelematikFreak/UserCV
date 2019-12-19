@@ -1,11 +1,10 @@
 package es.ulpgc.alexmoreno.usercv.master;
 
-import android.util.Log;
-
 import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.alexmoreno.usercv.data.User;
+import es.ulpgc.alexmoreno.usercv.detail.DetailState;
 
 public class MasterPresenter implements MasterContract.Presenter {
 
@@ -40,7 +39,6 @@ public class MasterPresenter implements MasterContract.Presenter {
         model.loadMasterItems(new MasterContract.Model.OnMasterItemListFetchedCallback() {
             @Override
             public void setMasterItemList(List<User> itemList) {
-                Log.d(TAG, "setMasterItemList: setting:" + itemList);
                 viewModel.masterItemList = itemList;
                 view.get().displayData(viewModel);
             }
@@ -49,8 +47,9 @@ public class MasterPresenter implements MasterContract.Presenter {
 
     @Override
     public void selectMasterItemData(User item) {
-
+        DetailState state = new DetailState();
+        state.userSelected = item;
+        router.passDataToNextScreen(state);
+        router.navigateToNextScreen();
     }
-
-
 }

@@ -2,12 +2,16 @@ package es.ulpgc.alexmoreno.usercv.detail;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alexmoreno.usercv.data.User;
+
 interface DetailContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
 
         void displayData(DetailViewModel viewModel);
+
+        void showErrorGettingItem();
     }
 
     interface Presenter {
@@ -17,18 +21,17 @@ interface DetailContract {
 
         void injectRouter(Router router);
 
-        void fetchData();
+        void fetchDetailData();
     }
 
     interface Model {
-        String fetchData();
+        interface OnDetailDataFetchedCallback {
+            void setDetailItemList(User item);
+        }
+        void loadDetailData(OnDetailDataFetchedCallback callback);
     }
 
     interface Router {
-        void navigateToNextScreen();
-
-        void passDataToNextScreen(DetailState state);
-
         DetailState getDataFromPreviousScreen();
     }
 }

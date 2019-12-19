@@ -10,8 +10,7 @@ public class DetailModel implements DetailContract.Model {
     }
 
     @Override
-    public String fetchData() {
-        // Log.e(TAG, "fetchData()");
-        return "Hello";
+    public void loadDetailData(OnDetailDataFetchedCallback callback) {
+
     }
 }

@@ -5,6 +5,8 @@ import android.content.Context;
 
 import es.ulpgc.alexmoreno.usercv.app.AppMediator;
 import es.ulpgc.alexmoreno.usercv.data.User;
+import es.ulpgc.alexmoreno.usercv.detail.DetailActivity;
+import es.ulpgc.alexmoreno.usercv.detail.DetailState;
 
 public class MasterRouter implements MasterContract.Router {
 
@@ -19,23 +21,14 @@ public class MasterRouter implements MasterContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, MasterActivity.class);
+        Intent intent = new Intent(context, DetailActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
     @Override
-    public void passDataToNextScreen(MasterState state) {
-        mediator.setMasterState(state);
+    public void passDataToNextScreen(DetailState state) {
+        mediator.setDetailState(state);
     }
 
-    @Override
-    public MasterState getDataFromPreviousScreen() {
-        MasterState state = mediator.getMasterState();
-        return state;
-    }
-
-    @Override
-    public void passMasterItemToDetailScreen(User item) {
-
-    }
 }

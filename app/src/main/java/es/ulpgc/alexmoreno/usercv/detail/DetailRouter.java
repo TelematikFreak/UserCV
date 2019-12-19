@@ -1,8 +1,5 @@
 package es.ulpgc.alexmoreno.usercv.detail;
 
-import android.content.Intent;
-import android.content.Context;
-
 import es.ulpgc.alexmoreno.usercv.app.AppMediator;
 
 public class DetailRouter implements DetailContract.Router {
@@ -13,18 +10,6 @@ public class DetailRouter implements DetailContract.Router {
 
     public DetailRouter(AppMediator mediator) {
         this.mediator = mediator;
-    }
-
-    @Override
-    public void navigateToNextScreen() {
-        Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, DetailActivity.class);
-        context.startActivity(intent);
-    }
-
-    @Override
-    public void passDataToNextScreen(DetailState state) {
-        mediator.setDetailState(state);
     }
 
     @Override

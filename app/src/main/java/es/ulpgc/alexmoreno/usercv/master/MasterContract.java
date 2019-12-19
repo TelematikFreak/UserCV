@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import es.ulpgc.alexmoreno.usercv.data.User;
+import es.ulpgc.alexmoreno.usercv.detail.DetailState;
 
 interface MasterContract {
 
@@ -34,10 +35,7 @@ interface MasterContract {
     interface Router {
         void navigateToNextScreen();
 
-        void passDataToNextScreen(MasterState state);
+        void passDataToNextScreen(DetailState state);
 
-        MasterState getDataFromPreviousScreen();
-
-        void passMasterItemToDetailScreen(User item);
     }
 }

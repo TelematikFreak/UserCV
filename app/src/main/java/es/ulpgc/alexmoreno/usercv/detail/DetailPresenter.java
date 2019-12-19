@@ -33,26 +33,21 @@ public class DetailPresenter implements DetailContract.Presenter {
     }
 
     @Override
-    public void fetchData() {
+    public void fetchDetailData() {
         // Log.e(TAG, "fetchData()");
 
         // set passed state
         DetailState state = router.getDataFromPreviousScreen();
         if (state != null) {
-            viewModel.data = state.data;
-        }
-
-        if (viewModel.data == null) {
-            // call the model
-            String data = model.fetchData();
-
-            // set initial state
-            viewModel.data = data;
+            viewModel.userSelected = state.userSelected;
+            Log.d(TAG, "fetchDetailData: state:" + state.userSelected);
         }
 
         // update the view
-        view.get().displayData(viewModel);
-
+        if (viewModel.userSelected != null) {
+            Log.d(TAG, "fetchDetailData: viewmodel:" + viewModel.userSelected);
+            view.get().displayData(viewModel);
+        }
     }
 
 

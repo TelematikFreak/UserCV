@@ -12,7 +12,7 @@ import io.realm.RealmResults;
 public class MasterModel implements MasterContract.Model {
 
     public static String TAG = MasterModel.class.getSimpleName();
-    Realm realm;
+    private Realm realm;
 
     public MasterModel() {
         realm = Realm.getDefaultInstance();
@@ -58,7 +58,6 @@ public class MasterModel implements MasterContract.Model {
 
     @Override
     public void loadMasterItems(final OnMasterItemListFetchedCallback callback) {
-        Log.d(TAG, "loadMasterItems: entring");
         final RealmResults<User> users = realm.where(User.class).findAllAsync();
         users.addChangeListener(new OrderedRealmCollectionChangeListener<RealmResults<User>>() {
             @Override

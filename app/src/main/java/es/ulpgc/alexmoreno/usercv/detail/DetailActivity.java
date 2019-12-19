@@ -1,9 +1,10 @@
 package es.ulpgc.alexmoreno.usercv.detail;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.alexmoreno.usercv.R;
@@ -15,10 +16,15 @@ public class DetailActivity
 
     private DetailContract.Presenter presenter;
 
+    private TextView name;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        name = findViewById(R.id.name);
 
         // do the setup
         DetailScreen.configure(this);
@@ -29,7 +35,7 @@ public class DetailActivity
         super.onResume();
 
         // do some work
-        presenter.fetchData();
+        presenter.fetchDetailData();
     }
 
     @Override
@@ -42,6 +48,27 @@ public class DetailActivity
         //Log.e(TAG, "displayData()");
 
         // deal with the data
-        ((TextView) findViewById(R.id.data)).setText(viewModel.data);
+        if (viewModel.userSelected != null) {
+            name.setText(viewModel.userSelected.getName());
+        }
+    }
+
+    @Override
+    public void showErrorGettingItem() {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        alertBuilder.setTitle(R.string.errorLoading);
+        alertBuilder.setMessage(R.string.errorLoadingUser);
+        alertBuilder.setCancelable(true);
+
+        alertBuilder.setNegativeButton(R.string.dismiss,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        onBackPressed();
+                    }
+                });
+
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
     }
 }

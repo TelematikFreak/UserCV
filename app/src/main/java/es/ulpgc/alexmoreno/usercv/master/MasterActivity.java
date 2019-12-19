@@ -1,7 +1,6 @@
 package es.ulpgc.alexmoreno.usercv.master;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -33,7 +32,6 @@ public class MasterActivity
         super.onResume();
 
         // do some work
-        Log.d(TAG, "onResume: fetchMasterItemsData");
         presenter.fetchMasterItemsData();
     }
 
@@ -44,7 +42,6 @@ public class MasterActivity
 
     @Override
     public void displayData(MasterViewModel viewModel) {
-        Log.d(TAG, "displayData: viewModel: " + viewModel.masterItemList);
         listView.setAdapter(new MasterAdapter(this, viewModel.masterItemList, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
