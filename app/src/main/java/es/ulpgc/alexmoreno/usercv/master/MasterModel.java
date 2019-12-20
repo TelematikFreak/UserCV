@@ -30,7 +30,13 @@ public class MasterModel implements MasterContract.Model {
         Curriculum cv1 = realm.createObject(Curriculum.class);
         cv1.setId(0);
         cv1.setTitle("Titulo 1");
-        cv1.setCvDescription("Descripcion 1");
+        cv1.setCvDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
+                "when an unknown printer took a galley of type and scrambled it to make a type specimen book." +
+                " It has survived not only five centuries, but also the leap into electronic typesetting," +
+                " remaining essentially unchanged. It was popularised in the 1960s with the release of " +
+                "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing" +
+                " software like Aldus PageMaker including versions of Lorem Ipsum.");
         User user1 = realm.createObject(User.class);
         user1.setId(0);
         user1.setName("Alex");
@@ -42,7 +48,13 @@ public class MasterModel implements MasterContract.Model {
         Curriculum cv2 = realm.createObject(Curriculum.class);
         cv2.setId(1);
         cv2.setTitle("Titulo 2");
-        cv2.setCvDescription("Descripcion 2");
+        cv2.setCvDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. " +
+                "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, " +
+                "when an unknown printer took a galley of type and scrambled it to make a type specimen book." +
+                " It has survived not only five centuries, but also the leap into electronic typesetting," +
+                " remaining essentially unchanged. It was popularised in the 1960s with the release of " +
+                "Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing" +
+                " software like Aldus PageMaker including versions of Lorem Ipsum.");
         User user2 = realm.createObject(User.class);
         user2.setId(1);
         user2.setName("Moni");

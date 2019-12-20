@@ -34,6 +34,12 @@ public class NewUserActivity
         cvTitle = findViewById(R.id.cvTitle);
         cvResume = findViewById(R.id.cvResume);
 
+        androidx.appcompat.app.ActionBar toolbar = getSupportActionBar();
+        if (toolbar != null) {
+            toolbar.setDisplayHomeAsUpEnabled(true);
+            toolbar.setDisplayShowHomeEnabled(true);
+        }
+
         // do the setup
         NewUserScreen.configure(this);
     }
@@ -56,5 +62,11 @@ public class NewUserActivity
         //Log.e(TAG, "displayData()");
 
         // deal with the data
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
