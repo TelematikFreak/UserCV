@@ -1,11 +1,17 @@
 package es.ulpgc.alexmoreno.usercv.newUser;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import es.ulpgc.alexmoreno.usercv.R;
+import es.ulpgc.alexmoreno.usercv.data.Curriculum;
+import es.ulpgc.alexmoreno.usercv.data.User;
 
 public class NewUserActivity
         extends AppCompatActivity implements NewUserContract.View {
@@ -20,6 +26,14 @@ public class NewUserActivity
     private EditText idNumber;
     private EditText cvTitle;
     private EditText cvResume;
+    private Button sendButton;
+    private String nameString;
+    private String surnameString;
+    private String ageString;
+    private String jobString;
+    private String idNumberString;
+    private String cvTitleString;
+    private String cvResumeString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +47,24 @@ public class NewUserActivity
         idNumber = findViewById(R.id.idnumber);
         cvTitle = findViewById(R.id.cvTitle);
         cvResume = findViewById(R.id.cvResume);
+        sendButton = findViewById(R.id.sendButton);
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                nameString = name.getText().toString().trim();
+                surnameString = surname.getText().toString().trim();
+                ageString = age.getText().toString().trim();
+                jobString = job.getText().toString().trim();
+                idNumberString = idNumber.getText().toString().trim();
+                cvTitleString = cvTitle.getText().toString().trim();
+                cvResumeString = cvResume.getText().toString().trim();
+                int ageInt = Integer.parseInt(ageString);
+                User user = new User(0,nameString,surnameString,ageInt,jobString,idNumberString,0);
+                Curriculum cv = new Curriculum(0,cvTitleString,cvResumeString);
+                presenter.onSendButtonClicked(user, cv);
+            }
+        });
 
         androidx.appcompat.app.ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
@@ -49,7 +81,7 @@ public class NewUserActivity
         super.onResume();
 
         // do some work
-        presenter.fetchData();
+        //presenter.fetchData();
     }
 
     @Override
@@ -58,11 +90,24 @@ public class NewUserActivity
     }
 
     @Override
-    public void displayData(NewUserViewModel viewModel) {
-        //Log.e(TAG, "displayData()");
+    public void showErrorCreatingItem() {
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        alertBuilder.setTitle(R.string.errorCreating);
+        alertBuilder.setMessage(R.string.errorCreatingUser);
+        alertBuilder.setCancelable(true);
 
-        // deal with the data
+        alertBuilder.setNegativeButton(R.string.dismiss,
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                        onBackPressed();
+                    }
+                });
+
+        AlertDialog alertDialog = alertBuilder.create();
+        alertDialog.show();
     }
+
 
     @Override
     public boolean onSupportNavigateUp() {

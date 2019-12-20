@@ -2,12 +2,14 @@ package es.ulpgc.alexmoreno.usercv.newUser;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alexmoreno.usercv.data.Curriculum;
+import es.ulpgc.alexmoreno.usercv.data.User;
+
 interface NewUserContract {
 
     interface View {
         void injectPresenter(Presenter presenter);
-
-        void displayData(NewUserViewModel viewModel);
+        void showErrorCreatingItem();
     }
 
     interface Presenter {
@@ -17,11 +19,14 @@ interface NewUserContract {
 
         void injectRouter(Router router);
 
-        void fetchData();
+        void onSendButtonClicked(User user, Curriculum cv);
     }
 
     interface Model {
-        String fetchData();
+        interface OnNewUserCreated {
+            void changeViewToMaster(boolean error);
+        }
+        void createUser(User user, Curriculum cv, OnNewUserCreated callback);
     }
 
     interface Router {

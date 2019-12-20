@@ -3,4 +3,6 @@
     <string name="errorLoading">Error Loading the User Data</string>
     <string name="errorLoadingUser">There was an error loading user data, please try again later</string>
     <string name="dismiss">Dismiss</string>
+    <string name="errorCreating">Error Creating User</string>
+    <string name="errorCreatingUser">Error Creating User in the database, please try again later</string>
 </resources>

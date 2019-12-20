@@ -2,6 +2,9 @@ package es.ulpgc.alexmoreno.usercv.newUser;
 
 import java.lang.ref.WeakReference;
 
+import es.ulpgc.alexmoreno.usercv.data.Curriculum;
+import es.ulpgc.alexmoreno.usercv.data.User;
+
 public class NewUserPresenter implements NewUserContract.Presenter {
 
     public static String TAG = NewUserPresenter.class.getSimpleName();
@@ -31,26 +34,17 @@ public class NewUserPresenter implements NewUserContract.Presenter {
     }
 
     @Override
-    public void fetchData() {
-        // Log.e(TAG, "fetchData()");
-
-        // set passed state
-        /*NewUserState state = router.getDataFromPreviousScreen();
-        if (state != null) {
-            viewModel.data = state.data;
-        }
-
-        if (viewModel.data == null) {
-            // call the model
-            String data = model.fetchData();
-
-            // set initial state
-            viewModel.data = data;
-        }*/
-
-        // update the view
-        //view.get().displayData(viewModel);
-
+    public void onSendButtonClicked(User user, Curriculum cv) {
+        model.createUser(user, cv, new NewUserContract.Model.OnNewUserCreated() {
+            @Override
+            public void changeViewToMaster(boolean error) {
+                if (error) {
+                    view.get().showErrorCreatingItem();
+                } else {
+                    router.navigateToNextScreen();
+                }
+            }
+        });
     }
 
 

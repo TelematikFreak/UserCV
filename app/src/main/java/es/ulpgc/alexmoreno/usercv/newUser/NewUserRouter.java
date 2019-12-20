@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.alexmoreno.usercv.app.AppMediator;
+import es.ulpgc.alexmoreno.usercv.master.MasterActivity;
 
 public class NewUserRouter implements NewUserContract.Router {
 
@@ -18,7 +19,8 @@ public class NewUserRouter implements NewUserContract.Router {
     @Override
     public void navigateToNextScreen() {
         Context context = mediator.getApplicationContext();
-        Intent intent = new Intent(context, NewUserActivity.class);
+        Intent intent = new Intent(context, MasterActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(intent);
     }
 
