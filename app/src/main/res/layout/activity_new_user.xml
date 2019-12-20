@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your Name" />
+        android:hint="Introduce your Name" />
     <TextView
         android:id="@+id/surnameLabel"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Surname" />
+        android:hint="Introduce your Surname" />
     <TextView
         android:id="@+id/ageLabel"
         android:layout_width="match_parent"
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your Age" />
+        android:hint="Introduce your Age" />
     <TextView
         android:id="@+id/jobLabel"
         android:layout_width="match_parent"
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your Job" />
+        android:hint="Introduce your Job" />
     <TextView
         android:id="@+id/idNumberLabel"
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your ID Number" />
+        android:hint="Introduce your ID Number" />
     <TextView
         android:id="@+id/cvTitleLabel"
         android:layout_width="match_parent"
@@ -84,7 +84,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your CV Title" />
+        android:hint="Introduce your CV Title" />
     <TextView
         android:id="@+id/cvResumeLabel"
         android:layout_width="match_parent"
@@ -97,7 +97,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:placeholder="Introduce your CV Resume" />
+        android:hint="Introduce your CV Resume" />
 
     <Button
         android:id="@+id/sendButton"
