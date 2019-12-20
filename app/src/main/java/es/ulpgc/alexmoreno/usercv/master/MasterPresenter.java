@@ -52,4 +52,9 @@ public class MasterPresenter implements MasterContract.Presenter {
         router.passDataToNextScreen(state);
         router.navigateToNextScreen();
     }
+
+    @Override
+    public void onAddNewUserPressed() {
+        router.navigateToAddNewUserScreen();
+    }
 }

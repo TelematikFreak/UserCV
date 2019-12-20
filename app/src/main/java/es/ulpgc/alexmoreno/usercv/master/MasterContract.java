@@ -23,6 +23,8 @@ interface MasterContract {
         void fetchMasterItemsData();
 
         void selectMasterItemData(User item);
+
+        void onAddNewUserPressed();
     }
 
     interface Model {
@@ -37,5 +39,6 @@ interface MasterContract {
 
         void passDataToNextScreen(DetailState state);
 
+        void navigateToAddNewUserScreen();
     }
 }

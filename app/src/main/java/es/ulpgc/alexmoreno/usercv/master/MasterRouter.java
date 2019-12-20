@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.content.Context;
 
 import es.ulpgc.alexmoreno.usercv.app.AppMediator;
-import es.ulpgc.alexmoreno.usercv.data.User;
 import es.ulpgc.alexmoreno.usercv.detail.DetailActivity;
 import es.ulpgc.alexmoreno.usercv.detail.DetailState;
+import es.ulpgc.alexmoreno.usercv.newUser.NewUserActivity;
 
 public class MasterRouter implements MasterContract.Router {
 
@@ -29,6 +29,14 @@ public class MasterRouter implements MasterContract.Router {
     @Override
     public void passDataToNextScreen(DetailState state) {
         mediator.setDetailState(state);
+    }
+
+    @Override
+    public void navigateToAddNewUserScreen() {
+        Context context = mediator.getApplicationContext();
+        Intent intent = new Intent(context, NewUserActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        context.startActivity(intent);
     }
 
 }

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".newUser.NewUserActivity" >
+
+    <TextView
+        android:id="@+id/nameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name:" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your Name" />
+    <TextView
+        android:id="@+id/surnameLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Surname:" />
+
+    <EditText
+        android:id="@+id/surname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Surname" />
+    <TextView
+        android:id="@+id/ageLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Age:" />
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your Age" />
+    <TextView
+        android:id="@+id/jobLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Job:" />
+
+    <EditText
+        android:id="@+id/job"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your Job" />
+    <TextView
+        android:id="@+id/idNumberLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID Number:" />
+
+    <EditText
+        android:id="@+id/idnumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your ID Number" />
+    <TextView
+        android:id="@+id/cvTitleLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CV Title:" />
+
+    <EditText
+        android:id="@+id/cvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your CV Title" />
+    <TextView
+        android:id="@+id/cvResumeLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CV Resume:" />
+
+    <EditText
+        android:id="@+id/cvResume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:placeholder="Introduce your CV Resume" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send" />
+</LinearLayout>

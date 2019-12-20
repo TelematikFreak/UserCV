@@ -2,7 +2,7 @@ package es.ulpgc.alexmoreno.usercv.app;
 
 import android.app.Application;
 
-import es.ulpgc.alexmoreno.usercv.data.User;
+import es.ulpgc.alexmoreno.usercv.newUser.NewUserState;
 import es.ulpgc.alexmoreno.usercv.detail.DetailState;
 import es.ulpgc.alexmoreno.usercv.master.MasterState;
 import io.realm.Realm;
@@ -10,6 +10,7 @@ import io.realm.Realm;
 public class AppMediator extends Application {
     private MasterState masterState;
     private DetailState detailState;
+    private NewUserState newUserState;
 
     @Override
     public void onCreate() {
@@ -36,4 +37,11 @@ public class AppMediator extends Application {
         this.detailState = detailState;
     }
 
+    public NewUserState getNewUserState() {
+        return newUserState;
+    }
+
+    public void setNewUserState(NewUserState state) {
+        this.newUserState = state;
+    }
 }
