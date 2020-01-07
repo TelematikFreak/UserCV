@@ -39,8 +39,8 @@ public class MasterModel implements MasterContract.Model {
                 " software like Aldus PageMaker including versions of Lorem Ipsum.");
         User user1 = realm.createObject(User.class);
         user1.setId(0);
-        user1.setName("Alex");
-        user1.setSurname("Moreno");
+        user1.setName("Manuel");
+        user1.setSurname("Salvador");
         user1.setAge(33);
         user1.setJob("Estudiante");
         user1.setIdNumber("1234A");
@@ -57,8 +57,8 @@ public class MasterModel implements MasterContract.Model {
                 " software like Aldus PageMaker including versions of Lorem Ipsum.");
         User user2 = realm.createObject(User.class);
         user2.setId(1);
-        user2.setName("Moni");
-        user2.setSurname("Peletosa");
+        user2.setName("Prueba");
+        user2.setSurname("Apellido");
         user2.setAge(28);
         user2.setJob("Trabajadora");
         user2.setIdNumber("1234A");

@@ -2,6 +2,9 @@ package es.ulpgc.alexmoreno.usercv.detail;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -16,6 +19,7 @@ public class DetailActivity
 
     private DetailContract.Presenter presenter;
 
+    private Button deleteUserButton;
     private TextView name;
     private TextView surname;
     private TextView age;
@@ -30,6 +34,7 @@ public class DetailActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        deleteUserButton = findViewById(R.id.deleteUserButton);
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
         age = findViewById(R.id.age);
@@ -44,6 +49,14 @@ public class DetailActivity
             toolbar.setDisplayHomeAsUpEnabled(true);
             toolbar.setDisplayShowHomeEnabled(true);
         }
+
+        deleteUserButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("DELETE USER", "DELETE USER BUTTON TAPPED");
+                presenter.deleteUser();
+            }
+        });
 
 
         // do the setup
@@ -96,6 +109,11 @@ public class DetailActivity
 
         AlertDialog alertDialog = alertBuilder.create();
         alertDialog.show();
+    }
+
+    @Override
+    public void finishActivity() {
+        finish();
     }
 
     @Override

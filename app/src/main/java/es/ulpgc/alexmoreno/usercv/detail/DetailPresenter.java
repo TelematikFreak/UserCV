@@ -63,5 +63,17 @@ public class DetailPresenter implements DetailContract.Presenter {
         }
     }
 
+    @Override
+    public void deleteUser() {
+        User userToDelete = viewModel.userSelected;
+        Curriculum curriculumToDelte = viewModel.curriculumFromUser;
+        model.deleteUser(userToDelete, curriculumToDelte, new DetailContract.Model.OnDeleteUserCallback() {
+            @Override
+            public void onUserDeleted() {
+                view.get().finishActivity();
+            }
+        });
+    }
+
 
 }

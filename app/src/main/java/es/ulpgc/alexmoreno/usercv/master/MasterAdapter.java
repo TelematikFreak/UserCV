@@ -26,6 +26,7 @@ public class MasterAdapter extends ArrayAdapter<User> {
 
         itemList = items;
         clickListener = listener;
+        notifyDataSetChanged();
     }
 
     @Override

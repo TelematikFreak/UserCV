@@ -31,4 +31,21 @@ public class DetailModel implements DetailContract.Model {
             }
         });
     }
+
+    @Override
+    public void deleteUser(final User userToDelete, final Curriculum curriculumToDelete, final OnDeleteUserCallback callback) {
+        realm.executeTransaction(new Realm.Transaction() {
+            @Override
+            public void execute(Realm realm) {
+                RealmResults<User> usuario = realm.where(User.class)
+                        .equalTo("id", userToDelete.getId()).findAll();
+                RealmResults<Curriculum> curriculum = realm.where(Curriculum.class)
+                        .equalTo("id", curriculumToDelete.getId()).findAll();
+
+                curriculum.deleteAllFromRealm();
+                usuario.deleteAllFromRealm();
+                callback.onUserDeleted();
+            }
+        });
+    }
 }
