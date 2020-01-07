@@ -2,6 +2,7 @@ package es.ulpgc.alexmoreno.usercv.newUser;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,9 +80,6 @@ public class NewUserActivity
     @Override
     protected void onResume() {
         super.onResume();
-
-        // do some work
-        //presenter.fetchData();
     }
 
     @Override
@@ -91,6 +89,7 @@ public class NewUserActivity
 
     @Override
     public void showErrorCreatingItem() {
+        Log.d(TAG, "showErrorCreatingItem: ");
         AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
         alertBuilder.setTitle(R.string.errorCreating);
         alertBuilder.setMessage(R.string.errorCreatingUser);

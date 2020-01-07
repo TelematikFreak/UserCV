@@ -23,8 +23,10 @@ public class NewUserModel implements NewUserContract.Model {
         Number lastCv = realm.where(Curriculum.class).max("id");
         Number lastUser = realm.where(User.class).max("id");
         try {
-            lastC = lastCv.intValue();
-            lastU = lastUser.intValue();
+            if (lastCv != null && lastUser != null) {
+                lastC = lastCv.intValue();
+                lastU = lastUser.intValue();
+            }
         } catch (NullPointerException e) {
             Log.e(TAG, "createUser: ", e);
             callback.changeViewToMaster(true);

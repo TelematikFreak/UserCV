@@ -19,7 +19,7 @@ public class MasterModel implements MasterContract.Model {
             @Override
             public void onChange(RealmResults<User> users, OrderedCollectionChangeSet changeSet) {
                 if (users.isEmpty()) {
-                    insertData();
+                    //insertData();
                 }
             }
         });

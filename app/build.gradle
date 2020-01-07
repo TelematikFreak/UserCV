@@ -5,7 +5,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion '28.0.3'
     defaultConfig {
-        applicationId "es.ulpgc.msalaguila.usercv"
+        applicationId "es.ulpgc.alexmoreno.usercv"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1

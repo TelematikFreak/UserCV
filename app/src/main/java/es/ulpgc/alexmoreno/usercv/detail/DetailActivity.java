@@ -34,7 +34,7 @@ public class DetailActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        deleteUserButton = findViewById(R.id.deleteUserButton);
+        deleteUserButton = findViewById(R.id.deleteButton);
         name = findViewById(R.id.name);
         surname = findViewById(R.id.surname);
         age = findViewById(R.id.age);
