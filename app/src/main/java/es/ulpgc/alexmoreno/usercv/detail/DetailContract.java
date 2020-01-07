@@ -45,5 +45,6 @@ interface DetailContract {
 
     interface Router {
         DetailState getDataFromPreviousScreen();
+        void navigateToMasterActivity();
     }
 }

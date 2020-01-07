@@ -11,11 +11,14 @@ public class User extends RealmObject {
     private String idNumber;
     private int cv;
 
+    // examen
+    private int rate;
+
     public User(){
 
     }
 
-    public User(int id, String name, String surname, int age, String job, String idNumber, int cv) {
+    public User(int id, String name, String surname, int age, String job, String idNumber, int cv, int rate) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -23,6 +26,7 @@ public class User extends RealmObject {
         this.job = job;
         this.idNumber = idNumber;
         this.cv = cv;
+        this.rate = rate;
     }
 
     public String getName() {
@@ -79,5 +83,13 @@ public class User extends RealmObject {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getRate() {
+        return rate;
+    }
+
+    public void setRate(int rate) {
+        this.rate = rate;
     }
 }

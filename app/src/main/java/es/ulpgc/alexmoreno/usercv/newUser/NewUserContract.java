@@ -10,6 +10,7 @@ interface NewUserContract {
     interface View {
         void injectPresenter(Presenter presenter);
         void showErrorCreatingItem();
+        void finish();
     }
 
     interface Presenter {

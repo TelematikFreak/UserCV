@@ -19,6 +19,7 @@ public class NewUserModel implements NewUserContract.Model {
 
     @Override
     public void createUser(User user, Curriculum cv, final OnNewUserCreated callback) {
+        Log.d(TAG, "createUser: " + user.getRate());
         int lastC = 0;
         int lastU = 0;
         Number lastCv = realm.where(Curriculum.class).max("id");
@@ -51,6 +52,7 @@ public class NewUserModel implements NewUserContract.Model {
         userToCreate.setSurname(user.getSurname());
         userToCreate.setAge(user.getAge());
         userToCreate.setJob(user.getJob());
+        userToCreate.setRate(user.getRate()); // examen
         userToCreate.setIdNumber(user.getIdNumber());
         userToCreate.setCv(lastC + 1);
         realm.commitTransaction();

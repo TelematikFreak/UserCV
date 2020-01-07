@@ -28,6 +28,8 @@ public class DetailActivity
     private TextView cvTitle;
     private TextView cvResume;
 
+    private TextView rate; // examen
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class DetailActivity
         cvTitle = findViewById(R.id.cvTitle);
         cvResume = findViewById(R.id.cvResume);
 
+        rate = findViewById(R.id.rate); // examen
+
 
         androidx.appcompat.app.ActionBar toolbar = getSupportActionBar();
         if (toolbar != null) {
@@ -53,7 +57,6 @@ public class DetailActivity
         deleteUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("DELETE USER", "DELETE USER BUTTON TAPPED");
                 presenter.deleteUser();
             }
         });
@@ -87,6 +90,7 @@ public class DetailActivity
             age.setText(ageString);
             job.setText(viewModel.userSelected.getJob());
             idNumber.setText(viewModel.userSelected.getIdNumber());
+            rate.setText(String.valueOf(viewModel.userSelected.getRate())); // examen
             cvTitle.setText(viewModel.curriculumFromUser.getTitle());
             cvResume.setText(viewModel.curriculumFromUser.getCvDescription());
         }

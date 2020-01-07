@@ -42,6 +42,7 @@ public class NewUserPresenter implements NewUserContract.Presenter {
                     view.get().showErrorCreatingItem();
                 } else {
                     router.navigateToNextScreen();
+                    view.get().finish();
                 }
             }
         });

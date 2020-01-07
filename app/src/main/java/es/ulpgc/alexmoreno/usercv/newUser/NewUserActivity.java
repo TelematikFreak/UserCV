@@ -6,6 +6,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,6 +38,12 @@ public class NewUserActivity
     private String cvTitleString;
     private String cvResumeString;
 
+    // examen
+
+    private SeekBar seekBar;
+    private TextView seekBarText;
+    private int rate;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +58,27 @@ public class NewUserActivity
         cvResume = findViewById(R.id.cvResume);
         sendButton = findViewById(R.id.sendButton);
 
+        // examen
+        seekBarText = findViewById(R.id.rate);
+        seekBar = findViewById(R.id.rateBar);
+        rate = 0;
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                seekBarText.setText(String.valueOf(progress));
+                rate = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +90,7 @@ public class NewUserActivity
                 cvTitleString = cvTitle.getText().toString().trim();
                 cvResumeString = cvResume.getText().toString().trim();
                 int ageInt = Integer.parseInt(ageString);
-                User user = new User(0,nameString,surnameString,ageInt,jobString,idNumberString,0);
+                User user = new User(0,nameString,surnameString,ageInt,jobString,idNumberString,0,rate);
                 Curriculum cv = new Curriculum(0,cvTitleString,cvResumeString);
                 presenter.onSendButtonClicked(user, cv);
             }

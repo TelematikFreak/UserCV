@@ -15,103 +15,122 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-        <TextView
-            android:id="@+id/nameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Name:" />
+            <TextView
+                android:id="@+id/nameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name:" />
 
-        <EditText
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your Name" />
-        <TextView
-            android:id="@+id/surnameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Surname:" />
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your Name" />
+            <TextView
+                android:id="@+id/surnameLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Surname:" />
 
-        <EditText
-            android:id="@+id/surname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your Surname" />
-        <TextView
-            android:id="@+id/ageLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Age:" />
+            <EditText
+                android:id="@+id/surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your Surname" />
+            <TextView
+                android:id="@+id/ageLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age:" />
 
-        <EditText
-            android:id="@+id/age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="Introduce your Age" />
-        <TextView
-            android:id="@+id/jobLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Job:" />
+            <EditText
+                android:id="@+id/age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="number"
+                android:hint="Introduce your Age" />
+            <TextView
+                android:id="@+id/jobLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Job:" />
 
-        <EditText
-            android:id="@+id/job"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your Job" />
-        <TextView
-            android:id="@+id/idNumberLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ID Number:" />
+            <EditText
+                android:id="@+id/job"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your Job" />
+            <TextView
+                android:id="@+id/idNumberLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID Number:" />
 
-        <EditText
-            android:id="@+id/idnumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your ID Number" />
-        <TextView
-            android:id="@+id/cvTitleLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CV Title:" />
+            <EditText
+                android:id="@+id/idnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your ID Number" />
+            <TextView
+                android:id="@+id/cvTitleLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CV Title:" />
 
-        <EditText
-            android:id="@+id/cvTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your CV Title" />
-        <TextView
-            android:id="@+id/cvResumeLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CV Resume:" />
+            <EditText
+                android:id="@+id/cvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your CV Title" />
+            <TextView
+                android:id="@+id/cvResumeLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CV Resume:" />
 
-        <EditText
-            android:id="@+id/cvResume"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:hint="Introduce your CV Resume" />
+            <EditText
+                android:id="@+id/cvResume"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:hint="Introduce your CV Resume" />
 
-        <Button
-            android:id="@+id/sendButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Send" />
+            <TextView
+                android:id="@+id/rateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rate:" />
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Rate" />
+
+            <SeekBar
+                android:id="@+id/rateBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:max="10" />
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Send" />
         </LinearLayout>
     </ScrollView>
 
