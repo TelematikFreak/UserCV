@@ -6,6 +6,7 @@ import android.util.Log;
 import es.ulpgc.alexmoreno.usercv.data.Curriculum;
 import es.ulpgc.alexmoreno.usercv.data.User;
 import io.realm.Realm;
+import io.realm.RealmChangeListener;
 
 public class NewUserModel implements NewUserContract.Model {
 
@@ -17,7 +18,7 @@ public class NewUserModel implements NewUserContract.Model {
     }
 
     @Override
-    public void createUser(User user, Curriculum cv, OnNewUserCreated callback) {
+    public void createUser(User user, Curriculum cv, final OnNewUserCreated callback) {
         int lastC = 0;
         int lastU = 0;
         Number lastCv = realm.where(Curriculum.class).max("id");
@@ -31,6 +32,13 @@ public class NewUserModel implements NewUserContract.Model {
             Log.e(TAG, "createUser: ", e);
             callback.changeViewToMaster(true);
         }
+
+        realm.addChangeListener(new RealmChangeListener<Realm>() {
+            @Override
+            public void onChange(Realm realm) {
+                callback.changeViewToMaster(false);
+            }
+        });
 
         realm.beginTransaction();
         Curriculum cvToCreate = realm.createObject(Curriculum.class);
@@ -46,7 +54,5 @@ public class NewUserModel implements NewUserContract.Model {
         userToCreate.setIdNumber(user.getIdNumber());
         userToCreate.setCv(lastC + 1);
         realm.commitTransaction();
-
-        callback.changeViewToMaster(false);
     }
 }
